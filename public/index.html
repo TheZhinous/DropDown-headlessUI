@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DropDown</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="relative" x-data="{ open: false }">
+      <button
+        @click="open = !open"
+        class="bg-blue-500 px-4 py-2 rounded-lg w-48 text-white shadow-md text-lg inline-flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white"
+      >
+        <span>Show more</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 ml-2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+      </button>
+
+      <button
+        x-show="open"
+        @click="open = false"
+        class="inset-0 fixed bg-blue-700 blur-sm opacity-10"
+      ></button>
+      <div
+        class="bg-gray-100 w-48 rounded-lg overflow-hidden mt-4 border border-gray-300 absolute shadow-md left-0 z-10"
+        x-show="open"
+      >
+        <a
+          href="#"
+          class="block text-gary-200 p-2 hover:bg-slate-400 hover:text-slate-100"
+          >Account</a
+        ><a
+          href="#"
+          class="block text-gary-200 p-2 hover:bg-slate-400 hover:text-slate-100"
+          >Support</a
+        ><a
+          href="#"
+          class="block text-gary-200 p-2 hover:bg-slate-400 hover:text-slate-100"
+          >Profile</a
+        >
+      </div>
+    </div>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </body>
+</html>
